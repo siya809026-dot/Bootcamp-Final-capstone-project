@@ -1,0 +1,113 @@
+/* ===================================================================
+   Navbar.css — cozy academic
+   Extends the parchment / forest / brass / oxblood system from
+   Dashboard.css. Matches the exact class names already in use.
+=================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;0,9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  --parchment: #f4ecdd;
+  --paper-line: #e3d6b8;
+  --ink: #2f2a22;
+  --ink-soft: #8a7f6a;
+  --forest: #3f5d46;
+  --brass: #b8863c;
+  --brass-soft: #d8b878;
+  --oxblood: #7a3430;
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background: var(--parchment);
+  border-bottom: 1px solid var(--paper-line);
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+
+/* faint brass hairline under the main border, like a gilded book edge */
+.navbar::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, var(--brass-soft) 50%, transparent 100%);
+  opacity: 0.6;
+}
+
+.navbar-logo{
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.navbar-links{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-link{
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 4px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-link:hover{
+  color: var(--ink);
+}
+
+/* active link: a brass underline, like a ribbon bookmark peeking
+   out from between two pages */
+.navbar-link-active{
+  color: var(--forest);
+  font-weight: 600;
+  border-bottom: 2px solid var(--brass);
+  position: relative;
+}
+
+.navbar-link-active::after{
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: var(--oxblood);
+  border-radius: 50%;
+}
+
+.navbar-logout{
+  color: var(--oxblood);
+}
+
+.navbar-logout:hover{
+  color: #5c261f;
+}
+
+@media (max-width: 640px){
+  .navbar{
+    padding: 14px 20px;
+  }
+  .navbar-links{
+    gap: 14px;
+  }
+  .navbar-logo{
+    font-size: 19px;
+  }
+}

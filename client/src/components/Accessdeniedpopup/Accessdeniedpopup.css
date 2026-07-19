@@ -1,0 +1,113 @@
+/* ===================================================================
+   AccessDeniedPopup.css — cozy academic
+   Matches the exact class names already in use.
+=================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;0,9..144,600&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap');
+
+:root{
+  --card: #fbf6ec;
+  --paper-line: #e3d6b8;
+  --ink: #2f2a22;
+  --ink-soft: #6b6047;
+  --forest: #3f5d46;
+  --forest-deep: #2c4230;
+  --oxblood: #7a3430;
+  --oxblood-tint: #f1e0dc;
+}
+
+.denied-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(47,42,34,0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  padding: 20px;
+}
+
+.denied-card{
+  width: 100%;
+  max-width: 320px;
+  background: var(--card);
+  border: 1px solid var(--paper-line);
+  border-top: 3px solid var(--oxblood);
+  border-radius: 6px;
+  padding: 28px 24px 26px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 20px 50px rgba(20,17,12,0.28);
+  animation: deniedIn 0.22s ease both;
+}
+
+@keyframes deniedIn{
+  from{ opacity: 0; transform: translateY(8px) scale(0.98); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.denied-icon{
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--oxblood-tint);
+  color: var(--oxblood);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  border: 1px solid rgba(122,52,48,0.18);
+}
+
+.denied-title{
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--ink);
+  margin: 0 0 9px;
+}
+
+.denied-text{
+  font-size: 13.5px;
+  font-family: 'Source Serif 4', 'Georgia', serif;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin: 0 0 20px;
+}
+
+.denied-text strong{
+  color: var(--ink);
+  font-style: italic;
+}
+
+.denied-close{
+  background: linear-gradient(180deg, var(--forest) 0%, var(--forest-deep) 100%);
+  color: #f4ecdd;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 26px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    0 3px 0 var(--forest-deep),
+    0 6px 14px rgba(44,66,48,0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+
+.denied-close:hover{
+  background: linear-gradient(180deg, #47694f 0%, #33502f 100%);
+}
+
+.denied-close:active{
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    0 1px 0 var(--forest-deep),
+    0 3px 8px rgba(44,66,48,0.2);
+}

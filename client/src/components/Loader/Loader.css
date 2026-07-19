@@ -1,0 +1,60 @@
+/* ===================================================================
+   Loader.css — cozy academic
+   Matches the exact class names already in use.
+=================================================================== */
+
+:root{
+  --forest: #3f5d46;
+  --brass: #b8863c;
+}
+
+.loader-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 60px 0;
+}
+
+.loader-inline{
+  padding: 0;
+  gap: 4px;
+}
+
+.loader-inline .loader-dot{
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+}
+
+.loader-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  /* alternates forest/brass across the three dots rather than one
+     flat color, so it reads like ink and gilt rather than a generic
+     spinner */
+  background: var(--forest);
+  animation: loader-bounce 1s infinite ease-in-out;
+}
+
+.loader-dot:nth-child(2){
+  background: var(--brass);
+  animation-delay: 0.15s;
+}
+
+.loader-dot:nth-child(3){
+  background: var(--forest);
+  animation-delay: 0.3s;
+}
+
+.loader-inline .loader-dot,
+.loader-inline .loader-dot:nth-child(2),
+.loader-inline .loader-dot:nth-child(3){
+  background: #ffffff;
+}
+
+@keyframes loader-bounce{
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}

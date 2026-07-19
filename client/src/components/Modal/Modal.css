@@ -1,0 +1,171 @@
+/* ===================================================================
+   Modal.css — cozy academic
+   Matches the exact class names already in use. Extends the
+   parchment / forest / brass / oxblood system used across the app.
+=================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;0,9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  --parchment: #f4ecdd;
+  --card: #fbf6ec;
+  --paper-line: #e3d6b8;
+  --ink: #2f2a22;
+  --ink-soft: #8a7f6a;
+  --forest: #3f5d46;
+  --forest-deep: #2c4230;
+  --brass: #b8863c;
+  --brass-soft: #d8b878;
+  --oxblood: #7a3430;
+}
+
+.modal-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(47,42,34,0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+
+.modal-card{
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 27px,
+      var(--paper-line) 27px, var(--paper-line) 28px
+    ),
+    var(--card);
+  background-position: 0 62px;
+  border: 1px solid var(--paper-line);
+  border-top: 3px solid var(--forest);
+  border-radius: 6px;
+  padding: 28px 26px 26px;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(20,17,12,0.3);
+  animation: cardSlideIn 0.25s ease both;
+}
+
+@keyframes cardSlideIn{
+  from{ opacity: 0; transform: translateY(10px) scale(0.98); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* corkboard thumbtack, echoing NoteCard's, so this reads as the
+   same object the modal is meant to produce */
+.modal-card::before{
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff 0%, var(--brass-soft) 35%, var(--brass) 75%, #8a622a 100%);
+  box-shadow: 0 2px 3px rgba(47,42,34,0.35);
+}
+
+.modal-close{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #b3a689;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.modal-close:hover{
+  color: var(--oxblood);
+  background: rgba(122,52,48,0.08);
+}
+
+.modal-title{
+  font-size: 17px;
+  font-weight: 600;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--ink);
+  margin: 0 0 20px;
+  text-transform: lowercase;
+}
+
+.modal-input,
+.modal-textarea{
+  display: block;
+  width: 100%;
+  border: 1px solid var(--paper-line);
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 10px 13px;
+  font-size: 13.5px;
+  color: var(--ink);
+  outline: none;
+  margin-bottom: 13px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-textarea{
+  resize: vertical;
+  font-family: 'Source Serif 4', 'Georgia', serif;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.modal-input:focus,
+.modal-textarea:focus{
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px rgba(63,93,70,0.1);
+}
+
+.modal-submit{
+  width: 100%;
+  background: linear-gradient(180deg, var(--forest) 0%, var(--forest-deep) 100%);
+  color: #f4ecdd;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    0 3px 0 var(--forest-deep),
+    0 8px 16px rgba(44,66,48,0.22);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+
+.modal-submit:hover:not(:disabled){
+  background: linear-gradient(180deg, #47694f 0%, #33502f 100%);
+}
+
+.modal-submit:active:not(:disabled){
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    0 1px 0 var(--forest-deep),
+    0 4px 10px rgba(44,66,48,0.22);
+}
+
+.modal-submit:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
