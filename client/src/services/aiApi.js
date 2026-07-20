@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const aiApi = axios.create({
-  baseURL: "http://localhost:3000/ai",
+  baseURL: "https://bootcamp-final-capstone-project-2-29.onrender.com/ai",
   timeout: 30000, // 30 seconds — fails instead of hanging forever
 });
 

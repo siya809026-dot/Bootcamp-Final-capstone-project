@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const authApi = axios.create({
-    baseURL: "http://localhost:3000/auth"
+    baseURL: "https://bootcamp-final-capstone-project-2-29.onrender.com/auth"
 });
 
 export default authApi;

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const noteApi = axios.create({
-    baseURL: "http://localhost:3000/notes"
+    baseURL: "https://bootcamp-final-capstone-project-2-29.onrender.com/notes"
 });
 
 export default noteApi;
