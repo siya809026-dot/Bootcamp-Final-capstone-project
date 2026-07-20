@@ -4,10 +4,10 @@ import { FiPlus, FiSearch } from "react-icons/fi";
 
 import noteApi from "../../services/noteApi";
 import aiApi from "../../services/aiApi";
-import Notecard from "../../components/Notecard/Notecard";
+import NoteCard from "../../components/NoteCard/Notecard";
 import Loader from "../../components/Loader/Loader";
 import Modal from "../../components/Modal/Modal";
-import AccessdeniedPopup from "../../components/AccessdeniedPopup/AccessdeniedPopup";
+import AccessdeniedPopup from "../../components/Accessdeniedpopup/Accessdeniedpopup";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { canModifyNote } from "../../services/Permissions";
