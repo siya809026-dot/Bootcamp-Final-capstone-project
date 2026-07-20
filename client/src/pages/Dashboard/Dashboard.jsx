@@ -4,7 +4,8 @@ import { FiPlus, FiSearch } from "react-icons/fi";
 
 import noteApi from "../../services/noteApi";
 import aiApi from "../../services/aiApi";
-import NoteCard from "../../components/NoteCard/Notecard";
+
+import NoteCard from "../../components/Notecard/Notecard";
 import Loader from "../../components/Loader/Loader";
 import Modal from "../../components/Modal/Modal";
 import AccessdeniedPopup from "../../components/Accessdeniedpopup/Accessdeniedpopup";
