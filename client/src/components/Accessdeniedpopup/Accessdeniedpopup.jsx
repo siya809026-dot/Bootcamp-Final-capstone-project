@@ -1,5 +1,5 @@
 import { FiLock } from "react-icons/fi";
-import "./AccessDeniedPopup.css";
+import "./AccessdeniedPopup.css";
 
 export default function AccessDeniedPopup({ note, onClose }) {
   const creatorName = note?.uploadedBy?.name || "someone else";

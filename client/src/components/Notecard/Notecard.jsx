@@ -1,5 +1,5 @@
 import { FiEdit2, FiTrash2 } from "react-icons/fi";
-import "./NoteCard.css";
+import "./Notecard.css";
 
 function getInitials(name = "") {
   return name
